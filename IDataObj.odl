@@ -1,0 +1,73 @@
+// ------------------------------------------------------------------------
+//     Copyright © 1997 Microsoft Corporation.  All rights reserved.
+//
+// You have a royalty-free right to use, modify, reproduce and distribute
+// the Sample Application Files (and/or any modified version) in any way
+// you find useful, provided that you agree that Microsoft has no warranty,
+// obligations or liability for any Sample Application Files.
+// ------------------------------------------------------------------------
+
+[
+    uuid(C71A3DA1-7B9D-11d0-BE19-00AA00C09191),
+    helpstring("VB 5 - IDataObject Interface"),
+    version(1.1)
+]
+library IDataObject_TLB
+{
+    importlib("stdole2.tlb");
+
+    [
+        uuid(0000010e-0000-0000-C000-000000000046),
+        helpstring("IDataObject Interface"),
+        odl
+    ]
+
+    interface IDataObject:IUnknown
+    {
+        [helpstring("GetData")]
+        HRESULT GetData(
+                       [in] long pformatetcIn,
+                       [in] long pmedium);
+
+        [helpstring("GetDataHere")]
+        HRESULT GetDataHere(
+                       [in] long pformatetc,
+                       [in] long pmedium);
+
+        [helpstring("QueryGetData")]
+        HRESULT QueryGetData(
+                       [in] long pformatetc);
+
+        [helpstring("GetCanonicalFormatEtc")]
+        HRESULT GetCanonicalFormatEtc(
+                       [in] long pformatectIn,
+                       [in] long pformatetcOut);
+
+        [helpstring("SetData")]
+        HRESULT SetData(
+                       [in] long pformatetc,
+                       [in] long pmedium,
+                       [in] long fRelease);
+
+        [helpstring("EnumFormatEtc")]
+        HRESULT EnumFormatEtc(
+                       [in] long dwDirection,
+                       [in] long ppenumFormatEtc);
+
+        [helpstring("DAdvise")]
+        HRESULT DAdvise(
+                       [in] long pformatetc,
+                       [in] long advf,
+                       [in] long pAdvSink,
+                       [in] long pdwConnection);
+
+        [helpstring("DUnadvise")]
+        HRESULT DUnadvise(
+                       [in] long dwConnection);
+
+        [helpstring("EnumDAdvise")]
+        HRESULT EnumDAdvise(
+                       [in] long ppenumAdvise);
+    }
+}
+

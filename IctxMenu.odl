@@ -1,0 +1,62 @@
+// ------------------------------------------------------------------------
+//     Copyright © 1997 Microsoft Corporation.  All rights reserved.
+//
+// You have a royalty-free right to use, modify, reproduce and distribute
+// the Sample Application Files (and/or any modified version) in any way
+// you find useful, provided that you agree that Microsoft has no warranty,
+// obligations or liability for any Sample Application Files.
+// ------------------------------------------------------------------------
+
+[
+    uuid(0074F4AC-5BD9-EED0-7DAA-CF11897500AA),
+    helpstring("VB 5 - ContextMenu Interface"),
+    version(1.0)
+]
+library IContextMenu_TLB
+{
+    importlib("stdole2.tlb");
+
+    [
+        uuid(000214E8-0000-0000-C000-000000000046),
+        helpstring("IShellExtInit Interface"),
+        odl
+    ]
+
+    interface IShellExtInit:IUnknown
+    {
+        [helpstring("Initialize")]
+        HRESULT Initialize(
+                        [in] long   pidlFolder, 
+                        [in] long   lpdobj, 
+                        [in] long   hKeyProgID);
+    }
+
+    [
+        uuid(000214E4-0000-0000-C000-000000000046),
+        helpstring("IContextMenu Interface"),
+        odl
+    ]
+
+    interface IContextMenu:IUnknown
+    {
+        [helpstring("QueryContextMenu")]
+        HRESULT QueryContextMenu(
+			[in] long  hMenu, 
+			[in] long  indexMenu, 
+			[in] long  idCmdFirst, 
+			[in] long  idCmdLast, 
+			[in] long  uFlags);
+
+        [helpstring("InvokeCommand")]
+        HRESULT InvokeCommand(
+			[in] long lpcmi);
+
+        [helpstring("GetCommandString")]
+        HRESULT GetCommandString(
+			[in] long  idCmd, 
+			[in] long  uFlags, 
+			[in] long  pwReserved, 
+			[in] long  pszName, 
+			[in] long  cchMax);
+    }
+}
