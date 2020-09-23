@@ -1,0 +1,22 @@
+REGEDIT4
+
+[HKEY_CLASSES_ROOT\.bmp]
+@="bmpfile"
+
+[HKEY_CLASSES_ROOT\bmpFile]
+@="Windows bmp - File"
+
+[HKEY_CLASSES_ROOT\bmpFile\shellex\ContextMenuHandlers]
+@="bmpFileMenu"
+
+; ------ Modify the Classid entry below -------------------------------------------
+;  Replace {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx} with a valid Classid entry...
+; ---------------------------------------------------------------------------------
+[HKEY_CLASSES_ROOT\bmpFile\shellex\ContextMenuHandlers\bmpFileMenu]
+@="{35FE0041-0582-11D4-A337-00805F49B06B}"
+
+; ------ Modify the Classid entry below -------------------------------------------
+;  Replace {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx} with a valid Classid entry...
+; ---------------------------------------------------------------------------------
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved]
+"{35FE0041-0582-11D4-A337-00805F49B06B}"="Bitmap Shell Extension"
